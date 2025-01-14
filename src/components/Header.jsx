@@ -33,14 +33,14 @@ const Header = () => {
           {/* Buttons */}
           <div className="md:flex hidden items-center gap-0 md:gap-4">
             <a
-              href="https://react.dev/blog/2024/12/05/react-19"
+              href="https://react.dev/blog/2024/12/05/react-19" target="_blank"
               className="text-nowrap inline-block rounded px-5 py-3 text-sm font-medium text-[#23272f] transition focus:outline-none focus:ring"
               type="button"
             >
               Official Docs
             </a>
 
-            <a
+            <a href="https://github.com/DavidHDev/react-19-playground" target="_blank"
               className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#23272f] px-5 py-3 text-white transition hover:text-gray-300 focus:outline-none focus:ring"
               type="button"
             >

@@ -6,14 +6,14 @@ const HomePage = () => {
         Practical code examples to help you learn the latest React topics
       </p>
       <div className="flex gap-4 items-center relative z-10 mt-6">
-        <button
+        <a href="https://react.dev/blog/2024/12/05/react-19" target="_blank"
           className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#57C4DC] px-5 py-3 text-[#23272f] transition hover:text-gray-600 focus:outline-none focus:ring"
           type="button"
         >
           <span className="text-sm font-medium">Official Docs</span>
-        </button>
+        </a>
 
-        <button
+        <a href="https://github.com/DavidHDev/react-19-playground" target="_blank"
           className="inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-3 text-[#23272f] bg-white transition hover:text-gray-600 focus:outline-none focus:ring"
           type="button"
         >
@@ -33,7 +33,7 @@ const HomePage = () => {
               d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
             />
           </svg>
-        </button>
+        </a>
       </div>
     </div>
   );
