@@ -14,3 +14,5 @@ npm run dev
 Open http://localhost:5500 to view the app in the browser.
 
 The sidebar will show a list of all the examples and you can click on each example to view the result of the code, and the code snippet of the example right below it.
+
+The examples in here were inspired by the ones given by Brad Traversy (TraversyMedia) and expanded upon, thanks Brad!
