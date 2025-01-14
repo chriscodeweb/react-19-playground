@@ -1,8 +1,6 @@
 # React 19 Playground
 
-This is a playground for some of the new features in React 19 and new experimental hooks and features. It uses the experimental version of React and is meant for testing and learning purposes only.
-
-<img src="./public/favicon.svg" alt="React 19 Playground" />
+This is a playground for some of the new updates in React 19 - hooks and other features. Feel free to update this with any improvements/bug fixes and/or more relevant examples! I've tried to leave more comments in the code, to hopefully offer some extra insights.
 
 ## Getting Started
 
@@ -15,6 +13,4 @@ npm run dev
 
 Open http://localhost:5500 to view the app in the browser.
 
-The homepage will show a list of all the examples and you can click on each example to view the result of the code.
-
-You can make PRs to add new examples or improve the existing ones.
+The sidebar will show a list of all the examples and you can click on each example to view the result of the code, and the code snippet of the example right below it.
