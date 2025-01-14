@@ -1,5 +1,7 @@
 import { useFormStatus } from 'react-dom';
 import { useState } from 'react';
+import CodeSnippet from '../../layouts/CodeSnippet';
+import { CODE_SNIPPETS } from '../../assets/CodeSnippets';
 
 // Component to display individual posts
 const PostItem = ({ post }) => {
@@ -45,7 +47,7 @@ const PostForm = ({ addPost }) => {
   return (
     <form
       action={formAction} // Specify the form action
-      className='bg-[#1B1D25] shadow-md rounded-2xl px-8 pt-6 pb-8 mb-4 relative mt-6 mx-8'
+      className='bg-[#1B1D25] shadow-md rounded-2xl px-8 pt-6 pb-8 mb-4'
     >
       {/* Input for post title */}
       <div className='mb-4'>
@@ -99,7 +101,7 @@ const Posts = () => {
   };
 
   return (
-    <>
+    <div className='relative mx-8 mt-6'>
       {/* Form to add a new post */}
       <PostForm addPost={addPost} />
 
@@ -107,7 +109,9 @@ const Posts = () => {
       {posts.map((post, index) => (
         <PostItem key={index} post={post} />
       ))}
-    </>
+
+      <CodeSnippet string={CODE_SNIPPETS.useFormStatus} />
+    </div>
   );
 };
 

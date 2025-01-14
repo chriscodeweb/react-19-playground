@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { CODE_SNIPPETS } from '../../assets/CodeSnippets';
+import CodeSnippet from '../../layouts/CodeSnippet';
 
 // Component for displaying individual posts
 const PostItem = ({ post }) => {
@@ -92,13 +94,17 @@ const Posts = () => {
 
   return (
     <div className='relative mx-8 mt-6'>
-      {/* Form to create new posts */}
-      <PostForm addPost={addPost} />
+      <div>
+        {/* Form to create new posts */}
+        <PostForm addPost={addPost} />
 
-      {/* List of posts */}
-      {posts.map((post, index) => (
-        <PostItem key={index} post={post} />
-      ))}
+        {/* List of posts */}
+        {posts.map((post, index) => (
+          <PostItem key={index} post={post} />
+        ))}
+      </div>
+
+      <CodeSnippet string={CODE_SNIPPETS.action1} />
     </div>
   );
 };

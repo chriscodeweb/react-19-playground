@@ -1,4 +1,6 @@
 import { use, Suspense } from 'react';
+import CodeSnippet from '../../layouts/CodeSnippet';
+import { CODE_SNIPPETS } from '../../assets/CodeSnippets';
 
 // Function to fetch resources with caching
 const fetchResource = (url) => {
@@ -21,7 +23,7 @@ const PostItems = () => {
   const posts = use(fetchResource('https://jsonplaceholder.typicode.com/posts'));
 
   return (
-    <ul className='px-8 max-h-[400px] overflow-y-scroll rounded-2xl py-3 mt-12 mx-8 relative bg-[#1B1D25]'>
+    <ul className='px-8 max-h-[400px] overflow-y-scroll rounded-2xl py-3 bg-[#1B1D25]'>
       {posts.map((post) => (
         <div
           key={post.id}
@@ -38,15 +40,19 @@ const PostItems = () => {
 // Component wrapping the list of posts with Suspense for fallback UI
 const Posts = () => {
   return (
-    <Suspense
-      fallback={
-        // Display a loading indicator while the data is being fetched
-        <h1 className='text-2xl text-center font-bold mt-5'>Loading...</h1>
-      }
-    >
-      {/* Render the list of posts */}
-      <PostItems />
-    </Suspense>
+    <div className='mt-6 mx-8 relative'>
+      <Suspense
+        fallback={
+          // Display a loading indicator while the data is being fetched
+          <h1 className='text-2xl text-center text-white font-bold mt-5'>Loading...</h1>
+        }
+      >
+        {/* Render the list of posts */}
+        <PostItems />
+      </Suspense>
+
+      <CodeSnippet string={CODE_SNIPPETS.use2} />
+    </div>
   );
 };
 

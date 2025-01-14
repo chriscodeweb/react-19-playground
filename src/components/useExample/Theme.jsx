@@ -1,4 +1,6 @@
 import { createContext, useState, use } from 'react';
+import CodeSnippet from '../../layouts/CodeSnippet';
+import { CODE_SNIPPETS } from '../../assets/CodeSnippets';
 
 // Create a context for the theme
 const ThemeContext = createContext();
@@ -26,7 +28,7 @@ const ThemedCard = () => {
 
   return (
     <div
-      className={`relative mt-6 mx-8 shadow-md rounded-lg p-6 ${theme === 'light' ? 'bg-white' : 'bg-[#1B1D25]'
+      className={`shadow-md rounded-lg p-6 ${theme === 'light' ? 'bg-white' : 'bg-[#1B1D25]'
         }`}
     >
       {/* Dynamic styling based on the current theme */}
@@ -57,9 +59,13 @@ const ThemedCard = () => {
 // Main component rendering the theme provider and themed card
 const Theme = () => {
   return (
-    <ThemeProvider>
-      <ThemedCard />
-    </ThemeProvider>
+    <div className='relative mt-6 mx-8'>
+      <ThemeProvider>
+        <ThemedCard />
+      </ThemeProvider>
+
+      <CodeSnippet string={CODE_SNIPPETS.use4} />
+    </div>
   );
 };
 

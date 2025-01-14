@@ -22,7 +22,7 @@ const Header = () => {
   const title = pathTitles[pathname] || "Explore React";
 
   return (
-    <header className={`bg-[#57C4DC] fixed top-[100px] md:top-0 left-1/2 md:left-[250px] transform -translate-x-1/2 md:translate-x-0 md:ml-12 md:mt-12 w-[96%] md:w-fit z-10 rounded-full app-header ${pathname !== '/' && 'hide-arrow'}`}>
+    <header className={`bg-[#57C4DC] absolute top-[70px] md:top-0 left-1/2 md:left-[250px] transform -translate-x-1/2 md:translate-x-0 md:ml-12 md:mt-12 w-[96%] md:w-fit z-10 rounded-full app-header ${pathname !== '/' && 'hide-arrow'}`}>
       <div className="py-4 pl-6 pr-4">
         <div className="flex gap-4 items-center justify-between">
           {/* Title */}

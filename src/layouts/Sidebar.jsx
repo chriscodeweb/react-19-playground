@@ -62,7 +62,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <Link to="/">
+              <Link to="/" onClick={() => setIsOpen(false)}>
                 <p
                   className={`${location.pathname === '/' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
                 >
@@ -95,7 +95,7 @@ const Sidebar = () => {
                 <ul className="mt-2 space-y-1 pl-2">
                   <li>
                     <Link
-                      to="/actions/1"
+                      to="/actions/1" onClick={() => setIsOpen(false)}
                       className={`${location.pathname === '/actions/1' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
                     >
                       Example 1
@@ -103,7 +103,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <Link
-                      to="/actions/2"
+                      to="/actions/2" onClick={() => setIsOpen(false)}
                       className={`${location.pathname === '/actions/2' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
                     >
                       Example 2
@@ -137,7 +137,7 @@ const Sidebar = () => {
                 <ul className="mt-2 space-y-1 pl-2">
                   <li>
                     <Link
-                      to="/use/1"
+                      to="/use/1" onClick={() => setIsOpen(false)}
                       className={`${location.pathname === '/use/1' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
                     >
                       Example 1
@@ -145,7 +145,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <Link
-                      to="/use/2"
+                      to="/use/2" onClick={() => setIsOpen(false)}
                       className={`${location.pathname === '/use/2' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
                     >
                       Example 2
@@ -153,7 +153,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <Link
-                      to="/use/3"
+                      to="/use/3" onClick={() => setIsOpen(false)}
                       className={`${location.pathname === '/use/3' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
                     >
                       Example 3
@@ -161,7 +161,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <Link
-                      to="/use/4"
+                      to="/use/4" onClick={() => setIsOpen(false)}
                       className={`${location.pathname === '/use/4' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
                     >
                       Example 4
@@ -173,7 +173,7 @@ const Sidebar = () => {
 
             <li>
               <Link
-                to="/useformstatus"
+                to="/useformstatus" onClick={() => setIsOpen(false)}
                 className={`${location.pathname === '/useformstatus' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
               >
                 useFormStatus()
@@ -181,7 +181,7 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                to="/useactionstate"
+                to="/useactionstate" onClick={() => setIsOpen(false)}
                 className={`${location.pathname === '/useactionstate' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
               >
                 useActionState()
@@ -189,7 +189,7 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                to="/usedeferredvalue"
+                to="/usedeferredvalue" onClick={() => setIsOpen(false)}
                 className={`${location.pathname === '/usedeferredvalue' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
               >
                 useDeferredValue()
@@ -197,7 +197,7 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                to="/useoptimistic"
+                to="/useoptimistic" onClick={() => setIsOpen(false)}
                 className={`${location.pathname === '/useoptimistic' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
               >
                 useOptimistic()
@@ -205,7 +205,7 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                to="/usetransition"
+                to="/usetransition" onClick={() => setIsOpen(false)}
                 className={`${location.pathname === '/usetransition' ? 'text-[#57C4DC]' : 'text-white'} block rounded-lg py-2 font-medium hover:text-gray-500 transition`}
               >
                 useTransition()

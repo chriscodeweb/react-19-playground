@@ -19,7 +19,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   .app-header::before {
-    transform: rotateY(0deg) rotateZ(240deg) translateY(90px) translateX(30px);
+    transform: rotateY(0deg) rotateZ(240deg) translateY(70px) translateX(10px) scale(0.8);
     transition: transform .3s ease;
   }
 }

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import CodeSnippet from '../../layouts/CodeSnippet';
+import { CODE_SNIPPETS } from '../../assets/CodeSnippets';
 
 // React 19 introduces an updated formAction prop, allowing developers to handle form submissions natively.
 // This ensures a more declarative approach while reducing the need for manual event listeners or handling.
@@ -58,7 +60,7 @@ const ShoppingCart = () => {
   // React 19 promotes the use of async logic in state-updating functions for smoother UX
   const addToCart = async (formData, title) => {
     const id = String(formData.get('itemID'));
-    
+
     // Simulate an asynchronous API call with a delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -69,22 +71,27 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className='bg-[#1B1D25] relative mx-8 mt-6 py-6 px-2 rounded-2xl'>
-      {/* Display current cart contents */}
-      <CartDisplay cart={cart} />
-      
-      {/* Example forms for adding items to the cart */}
-      <AddToCartForm
-        id='1'
-        title='JavaScript: The Good Parts'
-        addToCart={addToCart}
-      />
-      <AddToCartForm
-        id='2'
-        title='5000 V-Bucks Gift Card'
-        addToCart={addToCart}
-      />
+    <div className="relative mx-8 mt-6">
+      <div className='bg-[#1B1D25] py-6 px-2 rounded-2xl'>
+        {/* Display current cart contents */}
+        <CartDisplay cart={cart} />
+
+        {/* Example forms for adding items to the cart */}
+        <AddToCartForm
+          id='1'
+          title='JavaScript: The Good Parts'
+          addToCart={addToCart}
+        />
+        <AddToCartForm
+          id='2'
+          title='5000 V-Bucks Gift Card'
+          addToCart={addToCart}
+        />
+      </div>
+
+      <CodeSnippet string={CODE_SNIPPETS.action2} />
     </div>
+
   );
 };
 

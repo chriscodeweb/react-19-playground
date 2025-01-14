@@ -1,4 +1,6 @@
 import { useState, useDeferredValue } from 'react';
+import CodeSnippet from '../../layouts/CodeSnippet';
+import { CODE_SNIPPETS } from '../../assets/CodeSnippets';
 
 const SearchResults = ({ searchTerm }) => {
   const deferredSearchTerm = useDeferredValue(searchTerm); // Defers the search term
@@ -27,16 +29,20 @@ const SearchBox = () => {
   };
 
   return (
-    <div className="p-6 bg-[#1B1D25] rounded-2xl text-white relative mx-8 mt-6">
-      <h2 className="text-2xl mb-4">Search Items</h2>
-      <input
-        type="text"
-        placeholder="Type to search..."
-        className="w-full p-2 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-indigo-500"
-        onChange={handleInputChange}
-        value={searchTerm}
-      />
-      <SearchResults searchTerm={searchTerm} />
+    <div className='relative mx-8 mt-6'>
+      <div className="p-6 bg-[#1B1D25] rounded-2xl text-white">
+        <h2 className="text-2xl mb-4">Search Items</h2>
+        <input
+          type="text"
+          placeholder="Type to search..."
+          className="w-full p-2 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-indigo-500"
+          onChange={handleInputChange}
+          value={searchTerm}
+        />
+        <SearchResults searchTerm={searchTerm} />
+      </div>
+
+      <CodeSnippet string={CODE_SNIPPETS.useDeferredValue} />
     </div>
   );
 };

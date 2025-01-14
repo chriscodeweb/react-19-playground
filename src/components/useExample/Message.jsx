@@ -1,4 +1,6 @@
 import { use, useState, Suspense } from 'react';
+import CodeSnippet from '../../layouts/CodeSnippet';
+import { CODE_SNIPPETS } from '../../assets/CodeSnippets';
 
 // Simulated async function to fetch a message
 function fetchMessage() {
@@ -43,19 +45,23 @@ const Message = () => {
   }
 
   return (
-    <div className='relative mx-8 mt-6 flex justify-center items-center bg-[#1B1D25] p-12 rounded-2xl'>
-      {show ? (
-        // Show the message container if the user has triggered the download
-        <MessageContainer messagePromise={messagePromise} />
-      ) : (
-        // Show the download button initially
-        <button
-          className='bg-indigo-500 text-white font-bold py-2 px-4 rounded-full'
-          onClick={download}
-        >
-          Download message
-        </button>
-      )}
+    <div className='relative mx-8 mt-6'>
+      <div className='flex justify-center items-center bg-[#1B1D25] p-12 rounded-2xl'>
+        {show ? (
+          // Show the message container if the user has triggered the download
+          <MessageContainer messagePromise={messagePromise} />
+        ) : (
+          // Show the download button initially
+          <button
+            className='bg-indigo-500 text-white font-bold py-2 px-4 rounded-full'
+            onClick={download}
+          >
+            Download message
+          </button>
+        )}
+      </div>
+
+      <CodeSnippet string={CODE_SNIPPETS.use3} />
     </div>
   );
 };

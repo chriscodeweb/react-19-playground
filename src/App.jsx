@@ -17,18 +17,20 @@ import { UseOptimisticExample } from './components/useOptimisticExample/Message'
 import { UseTransitionExample } from './components/useTransitionExample/Tabs';
 import MainLayout from './layouts/MainLayout';
 import { UseDeferredValueExample } from './components/useDefferedValueExample/SearchResults';
+import CodeSnippet from './layouts/CodeSnippet';
+import { CODE_SNIPPETS } from './assets/CodeSnippets';
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout />}>
         <Route index element={<HomePage />} />
+        <Route path='actions/1' element={<ActionExample1 />} />
+        <Route path='actions/2' element={<ActionExample2 />} />
         <Route path='use/1' element={<UseExample1 />} />
         <Route path='use/2' element={<UseExample2 />} />
         <Route path='use/3' element={<UseExample3 />} />
         <Route path='use/4' element={<UseExample4 />} />
-        <Route path='actions/1' element={<ActionExample1 />} />
-        <Route path='actions/2' element={<ActionExample2 />} />
         <Route
           path='useformstatus'
           element={<UseFormStatusExample />}
@@ -36,15 +38,20 @@ const App = () => {
         <Route
           path='useActionState'
           element={
-            <div className='bg-[#1B1D25] relative mx-8 mt-6 py-6 px-2 rounded-2xl'>
-              <AddToCartForm
-                itemID='1'
-                itemTitle='JavaScript: The Good Parts'
-              />
-              <AddToCartForm
-                itemID='2'
-                itemTitle='5000 V-Bucks Gift Card'
-              />
+            <div className="relative mx-8 mt-6">
+              <div className='bg-[#1B1D25] rounded-2xl py-6 px-2'>
+                <AddToCartForm
+                  itemID='1'
+                  itemTitle='JavaScript: The Good Parts'
+                />
+                <AddToCartForm
+                  itemID='2'
+                  itemTitle='5000 V-Bucks Gift Card'
+                />
+
+              </div>
+
+              <CodeSnippet string={CODE_SNIPPETS.useActionState} />
             </div>
           }
         />

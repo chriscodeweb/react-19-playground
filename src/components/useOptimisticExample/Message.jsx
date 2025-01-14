@@ -1,4 +1,6 @@
 import { useOptimistic, useState, useRef } from 'react';
+import CodeSnippet from '../../layouts/CodeSnippet';
+import { CODE_SNIPPETS } from '../../assets/CodeSnippets';
 
 // Form component for sending messages
 const MessageForm = ({ addOptimisticMessage, sendMessage }) => {
@@ -49,7 +51,7 @@ const Thread = ({ messages, sendMessage }) => {
   );
 
   return (
-    <div className='relative mx-8 mt-6 bg-[#1B1D25] p-6 rounded-2xl'>
+    <div className='bg-[#1B1D25] p-6 rounded-2xl'>
       <MessageForm
         addOptimisticMessage={addOptimisticMessage}
         sendMessage={sendMessage}
@@ -85,7 +87,13 @@ const MessageBox = () => {
     setMessages((messages) => [...messages, { text: sentMessage }]);
   }
 
-  return <Thread messages={messages} sendMessage={sendMessage} />;
+  return (
+    <div className='mx-8 mt-6 relative'>
+      <Thread messages={messages} sendMessage={sendMessage} />;
+
+      <CodeSnippet string={CODE_SNIPPETS.useOptimistic} />
+    </div>
+  )
 };
 
 export { MessageBox as UseOptimisticExample };
