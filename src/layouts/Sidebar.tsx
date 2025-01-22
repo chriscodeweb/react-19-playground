@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
