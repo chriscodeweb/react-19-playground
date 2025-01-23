@@ -1,4 +1,4 @@
-# React 19 Playground
+# React 19 Playground (TypeScript version, not finished yet)
 
 This is a playground for some of the new updates in React 19 - hooks and other features. Feel free to update this with any improvements/bug fixes and/or more relevant examples! I've tried to leave more comments in the code, to hopefully offer some extra insights.
 
