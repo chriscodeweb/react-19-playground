@@ -14,19 +14,21 @@ import HomePage from './components/HomePage';
 import CodeSnippet from './layouts/CodeSnippet';
 import { CODE_SNIPPETS } from './assets/CodeSnippets';
 import MainLayout from './layouts/MainLayout';
+import { ActionExample1 } from './components/actionExample/Posts';
+import { ActionExample2 } from './components/actionExample/ShoppingCart';
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        {/* <Route path='actions/1' element={<ActionExample1 />} />
+        <Route path='actions/1' element={<ActionExample1 />} />
         <Route path='actions/2' element={<ActionExample2 />} />
-        <Route path='use/1' element={<UseExample1 />} /> */}
-        {/* <Route path='use/2' element={<UseExample2 />} />
-        <Route path='use/3' element={<UseExample3 />} />
-        <Route path='use/4' element={<UseExample4 />} /> */}
-        {/* <Route
+        {/* <Route path='use/1' element={<UseExample1 />} /> */}
+        {/* <Route path='use/2' element={<UseExample2 />} /> */}
+        {/* <Route path='use/3' element={<UseExample3 />} />
+        <Route path='use/4' element={<UseExample4 />} /> }
+        {<Route
           path='useformstatus'
           element={<UseFormStatusExample />}
         />
