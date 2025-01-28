@@ -1,8 +1,7 @@
 export const CODE_SNIPPETS = {
   action1: `import { useState } from 'react';
-
-// Interface for Post
-interface Post {
+  
+  interface Post {
   title: string;
   body: string;
 }
@@ -11,20 +10,28 @@ interface Post {
 const PostItem = ({ post }: { post: Post }) => {
   return (
     <div className='bg-[#1B1D25] text-white shadow-md p-6 my-6 rounded-2xl'>
+      {/* Post title */}
       <h2 className='text-xl font-bold capitalize'>{post.title}</h2>
+      {/* Post body */}
       <p>{post.body}</p>
     </div>
   );
 };
 
 // Component for adding new posts
-const PostForm = ({ addPost }: { addPost: (newPost: Post) => void }) => {
+interface PostFormProps {
+  addPost: (newPost: Post) => void;
+}
+
+const PostForm = ({ addPost }: PostFormProps) => {
+  // formAction handles the form submission and calls addPost with the new post data
   const formAction = async (formData: FormData) => {
-    const newPost = {
-      title: String(formData.get('title')),
-      body: String(formData.get('body')),
+    const newPost: Post = {
+      title: formData.get('title') as string,
+      body: formData.get('body') as string,
     };
 
+    // Ensure both fields are filled out before adding the post
     if (newPost.title && newPost.body) {
       addPost(newPost);
     } else {
@@ -37,8 +44,12 @@ const PostForm = ({ addPost }: { addPost: (newPost: Post) => void }) => {
       action={formAction}
       className='bg-[#1B1D25] shadow-md px-8 pt-6 pb-8 mb-4 mt-6 rounded-2xl relative'
     >
+      {/* Input field for post title */}
       <div className='mb-4'>
-        <label className='block text-white text-sm font-bold mb-2' htmlFor='title'>
+        <label
+          className='block text-white text-sm font-bold mb-2'
+          htmlFor='title'
+        >
           Title
         </label>
         <input
@@ -50,19 +61,24 @@ const PostForm = ({ addPost }: { addPost: (newPost: Post) => void }) => {
         />
       </div>
 
+      {/* Textarea for post body */}
       <div className='mb-6'>
-        <label className='block text-white text-sm font-bold mb-2' htmlFor='body'>
+        <label
+          className='block text-white text-sm font-bold mb-2'
+          htmlFor='body'
+        >
           Body
         </label>
         <textarea
           className='shadow appearance-none border rounded w-full py-2 px-3 bg-[#1B1D25] text-white leading-tight focus:outline-none focus:shadow-outline'
           id='body'
-          rows='5'
+          rows={5}
           placeholder='Enter body'
           name='body'
         ></textarea>
       </div>
 
+      {/* Submit button */}
       <div className='flex items-center justify-between'>
         <button
           className='bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline'
@@ -79,6 +95,7 @@ const PostForm = ({ addPost }: { addPost: (newPost: Post) => void }) => {
 const Posts = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
+  // Adds a new post to the list
   const addPost = (newPost: Post) => {
     setPosts((prevPosts) => [...prevPosts, newPost]);
   };
@@ -86,7 +103,10 @@ const Posts = () => {
   return (
     <div className='relative mx-8 mt-6'>
       <div>
+        {/* Form to create new posts */}
         <PostForm addPost={addPost} />
+
+        {/* List of posts */}
         {posts.map((post, index) => (
           <PostItem key={index} post={post} />
         ))}
@@ -95,8 +115,12 @@ const Posts = () => {
   );
 };
 
-export { Posts as ActionExample1 };`,
+export { Posts as ActionExample1};`,
+
   action2: `import { useState } from 'react';
+
+// React 19 introduces an updated formAction prop, allowing developers to handle form submissions natively.
+// This ensures a more declarative approach while reducing the need for manual event listeners or handling.
 
 // Interface for Cart Item
 interface CartItem {
@@ -104,41 +128,9 @@ interface CartItem {
   title: string;
 }
 
-const AddToCartForm = ({
-  id,
-  title,
-  addToCart,
-}: {
-  id: string;
-  title: string;
-  addToCart: (formData: FormData, title: string) => Promise<{ id: string }>;
-}) => {
-  const formAction = async (formData: FormData) => {
-    try {
-      await addToCart(formData, title);
-    } catch (error) {
-      console.error('Error adding item to cart:', error);
-    }
-  };
-
-  return (
-    <form
-      action={formAction}
-      className='bg-[#1B1D25] border shadow-md text-white rounded-2xl px-8 pt-6 pb-8 mb-4 relative mt-6 mx-8'
-    >
-      <h2 className='text-xl font-bold mb-4'>{title}</h2>
-      <input type='hidden' name='itemID' value={id} />
-      <button
-        type='submit'
-        className='bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline'
-      >
-        Add to Cart
-      </button>
-    </form>
-  );
-};
-
+// Component for displaying cart contents
 const CartDisplay = ({ cart }: { cart: CartItem[] }) => {
+  // Early return ensures no unnecessary DOM rendering for an empty cart
   if (cart.length === 0) {
     return null;
   }
@@ -156,20 +148,66 @@ const CartDisplay = ({ cart }: { cart: CartItem[] }) => {
   );
 };
 
+// Interface for AddToCartForm Props
+interface AddToCartFormProps {
+  id: string;
+  title: string;
+  addToCart: (formData: FormData, title: string) => Promise<{ id: string }>;
+}
+
+// Component for adding items to the cart
+const AddToCartForm = ({ id, title, addToCart }: AddToCartFormProps) => {
+  // The formAction function receives form data directly, enabling modern handling of form submissions.
+  const formAction = async (formData: FormData) => {
+    try {
+      await addToCart(formData, title);
+    } catch (error) {
+      console.error('Error adding item to cart:', error);
+    }
+  };
+
+  return (
+    <form
+      action={formAction}
+      className='bg-[#1B1D25] border shadow-md text-white rounded-2xl px-8 pt-6 pb-8 mb-4 relative mt-6 mx-8'
+    >
+      <h2 className='text-xl font-bold mb-4'>{title}</h2>
+      {/* Hidden input ensures item ID is included in formData */}
+      <input type='hidden' name='itemID' value={id} />
+      <button
+        type='submit'
+        className='bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline'
+      >
+        Add to Cart
+      </button>
+    </form>
+  );
+};
+
+// Main component managing the shopping cart
 const ShoppingCart = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  const addToCart = async (formData: FormData, title: string) => {
+  // React 19 promotes the use of async logic in state-updating functions for smoother UX
+  const addToCart = async (formData: FormData, title: string): Promise<{ id: string }> => {
     const id = String(formData.get('itemID'));
+
+    // Simulate an asynchronous API call with a delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Append the new item to the cart
     setCart((prevCart) => [...prevCart, { id, title }]);
-    return { id };
+
+    return { id }; // Return object for potential additional handling
   };
 
   return (
     <div className="relative mx-8 mt-6">
       <div className='bg-[#1B1D25] py-6 px-2 rounded-2xl'>
+        {/* Display current cart contents */}
         <CartDisplay cart={cart} />
+
+        {/* Example forms for adding items to the cart */}
         <AddToCartForm
           id='1'
           title='JavaScript: The Good Parts'
@@ -186,6 +224,7 @@ const ShoppingCart = () => {
 };
 
 export { ShoppingCart as ActionExample2 };`,
+
   use1: `import { use, Suspense } from 'react';
 
 interface Joke {

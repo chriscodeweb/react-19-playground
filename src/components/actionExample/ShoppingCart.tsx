@@ -72,7 +72,7 @@ const ShoppingCart = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   // React 19 promotes the use of async logic in state-updating functions for smoother UX
-  const addToCart = async (formData: FormData, title: string) => {
+  const addToCart = async (formData: FormData, title: string): Promise<{ id: string }> => {
     const id = String(formData.get('itemID'));
 
     // Simulate an asynchronous API call with a delay

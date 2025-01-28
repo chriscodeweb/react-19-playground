@@ -1,20 +1,33 @@
 import { useActionState } from 'react';
 
+enum Status {
+  Success = 'success',
+  Failure = 'failure',
+}
+interface FormState {
+  message: string;
+  status: Status;
+}
+interface AddToCartFormProps {
+  itemID: string;
+  itemTitle: string;
+}
+
 // Action function to handle form submissions
 // Takes the previous state and query data as parameters
-const addToCart = (prevState, queryData) => {
-  const itemID = queryData.get('itemID');
+const addToCart = (prevState: FormState | null, queryData: FormData): FormState => {
+  const itemID = queryData.get('itemID') as string;
 
   // Return different states based on the itemID
   if (itemID === '1') {
-    return { message: 'Added to cart!', status: 'success' };
+    return { ...prevState, message: 'Added to cart!', status: Status.Success };
   } else {
-    return { message: 'Out of stock!', status: 'failure' };
+    return {...prevState, message: 'Out of stock!', status: Status.Failure };
   }
 };
 
 // Form component for adding items to the cart
-const AddToCartForm = ({ itemID, itemTitle }) => {
+const AddToCartForm: React.FC<AddToCartFormProps> = ({ itemID, itemTitle }) => {
   // `useActionState` provides the current state and an action function
   const [formState, formAction] = useActionState(addToCart, null);
 
@@ -34,12 +47,12 @@ const AddToCartForm = ({ itemID, itemTitle }) => {
         type='submit'
         className='bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline'
       >
-        Add to Cart
+        Add to Cart xx
       </button>
 
       {/* Display feedback based on formState */}
       <div
-        className={`mt-4 text-sm ${formState?.status === 'success' ? 'text-green-400' : 'text-red-400'
+        className={`mt-4 text-sm ${formState?.status === Status.Success ? 'text-green-400' : 'text-red-400'
           }`}
       >
         {formState?.message}
