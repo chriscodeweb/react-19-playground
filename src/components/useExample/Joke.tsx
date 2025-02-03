@@ -76,7 +76,7 @@ const Joke: React.FC = () => {
         <JokeItem />
       </Suspense>
 
-      <CodeSnippet string={CODE_SNIPPETS.use1} />
+      <CodeSnippet string={CODE_SNIPPETS.UseExample1} />
     </div>
   );
 };

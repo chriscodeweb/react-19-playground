@@ -114,7 +114,7 @@ const Posts = () => {
         ))}
       </div>
 
-      <CodeSnippet string={CODE_SNIPPETS.action1} />
+      <CodeSnippet string={CODE_SNIPPETS.ActionExample1} />
     </div>
   );
 };

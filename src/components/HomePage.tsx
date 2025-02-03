@@ -16,7 +16,7 @@ const HomePage = (): ReactElement => {
           <span className="text-sm font-medium">Official Docs</span>
         </a>
 
-        <a href="https://github.com/DavidHDev/react-19-playground" target="_blank"
+        <a href="https://github.com/chriscodeweb/react-19-playground-typescript" target="_blank"
           className="inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-3 text-[#23272f] bg-white transition hover:text-gray-600 focus:outline-none focus:ring"
           type="button"
         >

@@ -103,7 +103,7 @@ const ShoppingCart = () => {
         />
       </div>
 
-      <CodeSnippet string={CODE_SNIPPETS.action2} />
+      <CodeSnippet string={CODE_SNIPPETS.ActionExample2}/>
     </div>
   );
 };

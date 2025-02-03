@@ -47,7 +47,7 @@ const AddToCartForm: React.FC<AddToCartFormProps> = ({ itemID, itemTitle }) => {
         type='submit'
         className='bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline'
       >
-        Add to Cart xx
+        Add to Cart
       </button>
 
       {/* Display feedback based on formState */}
