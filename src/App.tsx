@@ -20,6 +20,10 @@ import { UseExample1 } from './components/useExample/Joke';
 import { UseExample2 } from './components/useExample/Posts';
 import { UseExample3 } from './components/useExample/Message';
 import { UseExample4 } from './components/useExample/Theme';
+import { UseFormStatusExample } from './components/useFormStatusExample/Posts';
+import AddToCartForm from './components/useActionStateExample/AddToCartForm';
+import { UseDeferredValueExample } from './components/useDefferedValueExample/SearchResults';
+import { UseOptimisticExample } from './components/useOptimisticExample/Message';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -32,11 +36,11 @@ const App = () => {
         <Route path='use/2' element={<UseExample2 />} />
         <Route path='use/3' element={<UseExample3 />} /> 
         <Route path='use/4' element={<UseExample4 />} /> 
-        {/* <Route
+        <Route
           path='useformstatus'
           element={<UseFormStatusExample />}
         />
-        <Route
+        {/* <Route
           path='useActionState'
           element={
             <div className="relative mx-8 mt-6">
@@ -55,7 +59,7 @@ const App = () => {
               <CodeSnippet string={CODE_SNIPPETS.useActionState} />
             </div>
           }
-        />
+        /> */}
         <Route
           path='usedeferredvalue'
           element={<UseDeferredValueExample />}
@@ -64,10 +68,10 @@ const App = () => {
           path='useoptimistic'
           element={<UseOptimisticExample />}
         />
-        <Route
+        {/* <Route
           path='usetransition'
           element={<UseTransitionExample />}
-        />  */}
+        />   */}
       </Route>
     )
   );

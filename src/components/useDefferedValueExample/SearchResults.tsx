@@ -1,8 +1,23 @@
-import { useState, useDeferredValue } from 'react';
+import { useState, useDeferredValue, ChangeEvent } from 'react';
 import CodeSnippet from '../../layouts/CodeSnippet';
 import { CODE_SNIPPETS } from '../../assets/CodeSnippets';
 
-const SearchResults = ({ searchTerm }) => {
+interface SearchResultsProps {
+  searchTerm: string;
+}
+
+const items: string[] = [
+  'Apple',
+  'Banana',
+  'Orange',
+  'Grapes',
+  'Pineapple',
+  'Mango',
+  'Blueberry',
+  'Strawberry',
+];
+
+const SearchResults: React.FC<SearchResultsProps> = ({ searchTerm }) => {
   const deferredSearchTerm = useDeferredValue(searchTerm); // Defers the search term
 
   // Simulating filtered results based on deferred value
@@ -22,9 +37,9 @@ const SearchResults = ({ searchTerm }) => {
 };
 
 const SearchBox = () => {
-  const [searchTerm, setSearchTerm] = useState(''); // Tracks input value
+  const [searchTerm, setSearchTerm] = useState<string>(''); // Tracks input value
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value); // Updates immediately
   };
 
@@ -42,20 +57,9 @@ const SearchBox = () => {
         <SearchResults searchTerm={searchTerm} />
       </div>
 
-      <CodeSnippet string={CODE_SNIPPETS.useDeferredValue} />
+      <CodeSnippet string={CODE_SNIPPETS.UseDeferredValueExample} />
     </div>
   );
 };
-
-const items = [
-  'Apple',
-  'Banana',
-  'Orange',
-  'Grapes',
-  'Pineapple',
-  'Mango',
-  'Blueberry',
-  'Strawberry',
-];
 
 export { SearchBox as UseDeferredValueExample };
