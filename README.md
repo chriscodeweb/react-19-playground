@@ -1,5 +1,4 @@
 # React 19 Playground (TypeScript version)
-#### (not finished yet, updated to example 4)
 
 This is a fork from (https://github.com/DavidHDev/react-19-playground). 
 Credits to David Haz
