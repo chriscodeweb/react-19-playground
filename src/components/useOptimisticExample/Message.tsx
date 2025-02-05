@@ -1,4 +1,4 @@
-import { useOptimistic, useState, useRef } from 'react';
+import { useOptimistic, useState, useRef, useCallback, memo } from 'react';
 import CodeSnippet from '../../layouts/CodeSnippet';
 import { CODE_SNIPPETS } from '../../assets/CodeSnippets';
 
@@ -15,7 +15,7 @@ type MessageFormProps = {
 };
 
 // Form component for sending messages
-const MessageForm: React.FC<MessageFormProps> = ({ addOptimisticMessage, sendMessage }) => {
+const MessageForm: React.FC<MessageFormProps> = memo(({ addOptimisticMessage, sendMessage }) => {
   const formRef = useRef<HTMLFormElement>(null); // Ref to reset the form after submission
 
   const formAction = async (formData: FormData) => {
@@ -47,7 +47,7 @@ const MessageForm: React.FC<MessageFormProps> = ({ addOptimisticMessage, sendMes
       </button>
     </form>
   );
-};
+});
 
 // Define the props for the Thread component
 type ThreadProps = {
@@ -56,7 +56,7 @@ type ThreadProps = {
 };
 
 // Thread component to display messages with optimistic updates
-const Thread: React.FC<ThreadProps> = ({ messages, sendMessage }) => {
+const Thread: React.FC<ThreadProps> = memo(({ messages, sendMessage }) => {
   // `useOptimistic` maintains an optimistic state for the messages
   // Takes the initial state (`messages`) and a reducer function
   const [optimisticMessages, addOptimisticMessage] = useOptimistic(
@@ -87,7 +87,7 @@ const Thread: React.FC<ThreadProps> = ({ messages, sendMessage }) => {
       ))}
     </div>
   );
-};
+});
 
 // Simulates the delivery of a message (mock API call)
 const deliverMessage = async (message: string): Promise<string> => {
@@ -100,12 +100,12 @@ const MessageBox: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]); // State to store actual messages
 
   // Function to send a message
-  async function sendMessage(formData: FormData) {
+  const sendMessage = useCallback(async (formData: FormData) => {
     const sentMessage = await deliverMessage(formData.get('message') as string);
 
     // Update the actual state with the sent message
     setMessages((messages) => [...messages, { text: sentMessage }]);
-  }
+  }, []);
 
   return (
     <div className='mx-8 mt-6 relative'>
