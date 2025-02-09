@@ -3,7 +3,7 @@
 This is a fork from (https://github.com/DavidHDev/react-19-playground). 
 Credits to David Haz
 (https://beacons.ai/david.webdev) and Brad Traversy.
-I am trying to convert this to a typescript version for study purpuse. 
+I converted this project to a typescript version for study purpuse. 
 
 This playground uses some of the new updates in React 19 - hooks and other features. Feel free to update this with any improvements/bug fixes and/or more relevant examples! I've tried to leave more comments in the code, to hopefully offer some extra insights.
 
